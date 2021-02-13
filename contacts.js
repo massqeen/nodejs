@@ -17,11 +17,11 @@ async function getContactById(contactId) {
   try {
     const res = await fs.readFile(contactsPath)
     const data = JSON.parse(res)
-    const contact = data.filter((contact) => contact.id === contactId)
-    if (contact.length === 0) {
+    const contact = data.find((contact) => contact.id === contactId)
+    if (!contact) {
       console.log(`Id:${contactId} not found!`)
     } else {
-      console.table(contact)
+      console.table([contact])
     }
   } catch (error) {
     // handleError(error);
@@ -40,7 +40,7 @@ async function removeContact(contactId) {
 
       console.log(`Contact with id: ${contactId} removed!`)
     } else {
-      console.log(`No contacts with such id:${contactId}`)
+      console.log(`No contact with such id:${contactId}`)
     }
   } catch (error) {
     // handleError(error)

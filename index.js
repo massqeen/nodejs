@@ -5,4 +5,4 @@ const {
   removeContact,
 } = require('./contacts')
 
-console.log(getContactById(1))
+console.log(getContactById(12))

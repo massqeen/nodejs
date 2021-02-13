@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "node index.js",
-    "start: dev": "nodemon index.js"
+    "start:dev": "nodemon index.js"
   },
   "dependencies": {
     "yargs": "^16.2.0"
