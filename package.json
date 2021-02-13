@@ -1,0 +1,20 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "educational project for nodejs study",
+  "main": "index.js",
+  "repository": "https://github.com/massqeen/nodejs",
+  "author": "massqeen <62159695+massqeen@users.noreply.github.com>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "start: dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
