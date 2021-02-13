@@ -1,14 +1,16 @@
 const path = require('path')
 const fs = require('fs/promises')
 
+const handleError = require('../helpers/handleError')
+
 const contactsPath = path.resolve('./db/contacts.json')
 
 const listContacts = async () => {
   try {
     const res = await fs.readFile(contactsPath)
     console.table(JSON.parse(res))
-  } catch (error) {
-    // handleError(error);
+  } catch (e) {
+    handleError(e)
   }
 }
 
@@ -22,8 +24,8 @@ const getContactById = async (contactId) => {
     } else {
       console.table([contact])
     }
-  } catch (error) {
-    // handleError(error);
+  } catch (e) {
+    handleError(e)
   }
 }
 
@@ -40,8 +42,8 @@ const removeContact = async (contactId) => {
     } else {
       console.log(`No contact with such id:${contactId}`)
     }
-  } catch (error) {
-    // handleError(error)
+  } catch (e) {
+    handleError(e)
   }
 }
 
@@ -55,8 +57,8 @@ const addContact = async (name, email, phone) => {
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2))
 
     console.log('Contact added!')
-  } catch (error) {
-    // handleError(error);
+  } catch (e) {
+    handleError(e)
   }
 }
 
