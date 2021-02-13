@@ -3,9 +3,8 @@ const fs = require('fs/promises')
 
 const contactsPath = path.resolve('./db/contacts.json')
 
-async function listContacts() {
+const listContacts = async () => {
   try {
-    console.log(contactsPath)
     const res = await fs.readFile(contactsPath)
     console.table(JSON.parse(res))
   } catch (error) {
@@ -13,7 +12,7 @@ async function listContacts() {
   }
 }
 
-async function getContactById(contactId) {
+const getContactById = async (contactId) => {
   try {
     const res = await fs.readFile(contactsPath)
     const data = JSON.parse(res)
@@ -28,8 +27,7 @@ async function getContactById(contactId) {
   }
 }
 
-async function removeContact(contactId) {
-  console.log(contactId)
+const removeContact = async (contactId) => {
   try {
     const res = await fs.readFile(contactsPath)
     const data = JSON.parse(res)
@@ -47,7 +45,7 @@ async function removeContact(contactId) {
   }
 }
 
-async function addContact(name, email, phone) {
+const addContact = async (name, email, phone) => {
   try {
     const res = await fs.readFile(contactsPath)
     const contacts = JSON.parse(res)
