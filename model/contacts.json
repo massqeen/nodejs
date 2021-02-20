@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "id": "kcu1uMD_yl4iYl7mCOFzZ",
+      "name": "Ivan Petrov",
+      "email": "petrov@gmail.com",
+      "phone": "0679535566"
+    },
+    {
+      "id": "ZSrlB6oBvUAh75rgGQnnz",
+      "name": "Petya Sidorov",
+      "email": "sidorov@gmail.com",
+      "phone": "0934444444"
+    },
+    {
+      "id": "4J6lA2y07SrBIYj8xxZ5p",
+      "name": "Kolya Vasechkin",
+      "email": "vasechkin@i.ua",
+      "phone": "0449654411"
+    }
+  ]
+}
