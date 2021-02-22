@@ -1,2 +1,2 @@
 # Nodejs studying
-## A local db; fs and path modules; yargs and nodemon; 
+## Lowdb; express; REST API; 
