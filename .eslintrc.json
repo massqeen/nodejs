@@ -2,7 +2,7 @@
     "env": {
         "node": true,
         "commonjs": true,
-        "es2021": true
+        "es2020": true
     },
     "extends": [
         "prettier",
@@ -12,7 +12,7 @@
         "prettier"
     ],
     "parserOptions": {
-        "ecmaVersion": 12
+        "ecmaVersion": 11
     },
     "rules": {
         "prettier/prettier": "error"
