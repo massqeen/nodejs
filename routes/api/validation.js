@@ -1,4 +1,5 @@
 const Joi = require('joi')
+const mongoose = require('mongoose')
 const phoneJoi = Joi.extend(require('joi-phone-number'))
 
 const schemaCreateContact = Joi.object({
@@ -22,7 +23,7 @@ const schemaUpdateContact = Joi.object({
     .email({ tlds: { allow: false } })
     .optional(),
   phone: phoneJoi.string().phoneNumber().optional(),
-})
+}).min(1)
 
 const validate = (schema, obj, next) => {
   const { error } = schema.validate(obj)
@@ -32,6 +33,13 @@ const validate = (schema, obj, next) => {
       status: 400,
       message: `Filed: ${message.replace(/"/g, '')}`,
     })
+  }
+  next()
+}
+
+module.exports.id = (req, res, next) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).send('Invalid object id')
   }
   next()
 }

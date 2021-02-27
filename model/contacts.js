@@ -1,34 +1,15 @@
-const { nanoid } = require('nanoid')
-const db = require('./db')
+const Contact = require('./schemas/contact')
 
-const getAll = async () => {
-  return db.get('contacts').value()
-}
+const getAll = async () => await Contact.find({})
 
-const getById = async (id) => {
-  return db.get('contacts').find({ id }).value()
-}
+const getById = async (id) => await Contact.findOne({ _id: id })
 
-const remove = async (id) => {
-  const [record] = db.get('contacts').remove({ id }).write()
-  return record
-}
+const create = async (body) => await Contact.create(body)
 
-const create = async (body) => {
-  const id = nanoid()
-  const record = {
-    id,
-    ...body,
-  }
-  db.get('contacts').push(record).write()
-  return record
-}
+const update = async (id, body) =>
+  await Contact.findByIdAndUpdate({ _id: id }, { ...body }, { new: true })
 
-const update = async (id, body) => {
-  const record = db.get('contacts').find({ id }).assign(body).value()
-  db.write()
-  return record.id ? record : null
-}
+const remove = async (id) => await Contact.findByIdAndRemove({ _id: id })
 
 module.exports = {
   getAll,
